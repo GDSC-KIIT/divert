@@ -30,6 +30,10 @@ func schedule(f func(), delay time.Duration) {
 	}()
 }
 
+func index(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "DSCKIIT - divert, Please specify a short URL")
+}
+
 // Router is exported and used in main.go
 func Router() *mux.Router {
 	middleware.Init()
@@ -39,6 +43,7 @@ func Router() *mux.Router {
 
 	router := mux.NewRouter()
 
+	router.HandleFunc("/", index).Methods("GET", "OPTIONS")
 	router.HandleFunc("/{shortURL}", redirect).Methods("GET", "OPTIONS")
 
 	router.HandleFunc("/api/createURL", middleware.CreateShortenedURL).Methods("POST", "OPTIONS")
