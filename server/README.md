@@ -9,7 +9,7 @@
 }`
 * `/api/getAllURL` - Returns an array of JSON objects with all the long and short urls in it
 * `/api/updateURL` - Update a url, request body same as that of create
-* `/api/deleteURL` - Delete a url, Sample Request body `{"shortened_url)code: "abcd1234"}`
+* `/api/deleteURL` - Delete a url, Sample Request body `{"shortened_url_code: "abcd1234"}`
 
 ### Environment Variables
 
