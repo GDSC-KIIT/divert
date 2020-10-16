@@ -1,0 +1,26 @@
+INFO: 2020/10/17 00:36:26 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/17 00:36:26 logger.go:30: HashMap Update Complete
+INFO: 2020/10/17 00:37:26 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/17 00:37:26 logger.go:30: HashMap Update Complete
+INFO: 2020/10/17 00:37:50 logger.go:30: Middleware Init: Connected to MongoDB!
+INFO: 2020/10/17 00:37:50 logger.go:30: Middleware Init: Collection instance created!
+INFO: 2020/10/17 00:37:50 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/17 00:37:50 logger.go:30: HashMap Update Complete
+INFO: 2020/10/17 00:38:50 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/17 00:38:50 logger.go:30: HashMap Update Complete
+INFO: 2020/10/17 00:50:55 logger.go:30: Middleware Init: Connected to MongoDB!
+INFO: 2020/10/17 00:50:55 logger.go:30: Middleware Init: Collection instance created!
+INFO: 2020/10/17 00:50:55 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/17 00:50:55 logger.go:30: HashMap Update Complete
+INFO: 2020/10/17 00:51:46 logger.go:30: Creating Short URL: bla to Long URL: https://www.apple.com
+INFO: 2020/10/17 00:51:51 logger.go:30: Creating Short URL: apl to Long URL: https://www.apple.com
+INFO: 2020/10/17 00:51:55 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/17 00:51:55 logger.go:30: HashMap Update Complete
+INFO: 2020/10/17 00:52:55 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/17 00:52:55 logger.go:30: HashMap Update Complete
+INFO: 2020/10/17 00:53:55 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/17 00:53:55 logger.go:30: HashMap Update Complete
+INFO: 2020/10/17 00:54:55 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/17 00:54:55 logger.go:30: HashMap Update Complete
+INFO: 2020/10/17 00:55:55 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/17 00:55:55 logger.go:30: HashMap Update Complete

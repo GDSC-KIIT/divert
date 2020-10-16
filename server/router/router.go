@@ -14,12 +14,10 @@ func redirect(w http.ResponseWriter, r *http.Request) {
 	shortURL := mux.Vars(r)["shortURL"]
 	longURL, exists := urlmap.Map.Get(shortURL)
 	
-	fmt.Printf("Long URL Fetched: %v", longURL)
-	
 	if exists {
 		http.Redirect(w, r, longURL, 303)
 	} else {
-		fmt.Fprintf(w, "404 Page Not found")
+		fmt.Fprintf(w, "DSCKIIT Divert - 404 Page Not found")
 	}
 }
 
@@ -37,7 +35,7 @@ func Router() *mux.Router {
 	middleware.Init()
 	urlmap.Init()
 
-	schedule(urlmap.Map.Update, time.Minute)
+	schedule(urlmap.Map.Update, 3*time.Minute)
 
 	router := mux.NewRouter()
 

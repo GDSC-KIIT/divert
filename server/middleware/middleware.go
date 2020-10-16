@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
 	"os"
 	"time"
@@ -19,11 +18,16 @@ import (
 )
 
 var collection *mongo.Collection
+var lg logger.Logger
+
+type response struct {
+	Status  string `json:"status"`
+	Message interface{} `json:"message"`
+}
 
 // Init - Connect to the DB
 func Init() {
-	var l logger.Logger
-	l.Init()
+	lg.Init()
 
 	connectionString := os.Getenv("MONGODB_URL")
 	dbName := os.Getenv("DBNAME")
@@ -32,24 +36,24 @@ func Init() {
 	clientOptions := options.Client().ApplyURI(connectionString)
 	client, err := mongo.NewClient(clientOptions)
 	if err != nil {
-		l.WriteError(err.Error())
+		lg.WriteError(err.Error())
 	}
 
 	ctx, cancel := context.WithTimeout(context.TODO(), 15*time.Second)
 	err = client.Connect(ctx)
 	if err != nil {
-		l.WriteError(err.Error())
+		lg.WriteError(err.Error())
 	}
 	defer cancel()
 
 	err = client.Ping(context.TODO(), nil)
 	if err != nil {
-		l.WriteError(err.Error())
+		lg.WriteError(err.Error())
 	}
 
-	fmt.Println("Connected to MongoDB!")
+	lg.WriteInfo("Middleware Init: Connected to MongoDB!")
 	collection = client.Database(dbName).Collection(collectionName)
-	fmt.Println("Collection instance created!")
+	lg.WriteInfo("Middleware Init: Collection instance created!")
 }
 
 // Index - Get Request of the Index page
@@ -72,23 +76,29 @@ func CreateShortenedURL(w http.ResponseWriter, r *http.Request) {
 	_ = json.NewDecoder(r.Body).Decode(&reqURL)
 	reqURL.ClickCount = 0
 
-	fmt.Printf("Create: %v", reqURL)
+	lg.WriteInfo(fmt.Sprintf("Creating Short URL: %v to Long URL: %v", reqURL.ShortenedURLCode, reqURL.OriginalURL))
 
-	// insert in mongo
-	result, err := collection.InsertOne(context.TODO(), reqURL)
+	// check if the same short url already exists
+	var searchResult bson.M
+	err := collection.FindOne(context.TODO(), bson.D{{"shortened_url_code", reqURL.ShortenedURLCode}}).Decode(&searchResult)
+
 	if err != nil {
-		log.Fatal(err)
-	}
+		if err == mongo.ErrNoDocuments {
+			// short url is unique -> insert in db
+			result, err := collection.InsertOne(context.TODO(), reqURL)
+			if err != nil {
+				lg.WriteError(err.Error())
+			}
 
-	json.NewEncoder(w).Encode(result.InsertedID)
+			json.NewEncoder(w).Encode(response{"okay", result.InsertedID})
+		}
+	} else {
+		json.NewEncoder(w).Encode(response{"error", "Same Short URL already exists"})
+	}
 }
 
 // GetAllURL - Get all the URLs in the DB
 func GetAllURL(w http.ResponseWriter, r *http.Request) {
-	// TODO: make sure you cannot insert duplicates
-	var l logger.Logger
-	l.Init()
-
 	// set headers
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
@@ -96,7 +106,7 @@ func GetAllURL(w http.ResponseWriter, r *http.Request) {
 
 	cursor, err := collection.Find(context.TODO(), bson.D{})
 	if err != nil {
-		l.WriteError(err.Error())
+		lg.WriteError(err.Error())
 	}
 	defer cursor.Close(context.TODO())
 
@@ -105,7 +115,7 @@ func GetAllURL(w http.ResponseWriter, r *http.Request) {
 	for cursor.Next(context.TODO()) {
 		var url bson.M
 		if err = cursor.Decode(&url); err != nil {
-			l.WriteError(err.Error())
+			lg.WriteError(err.Error())
 		}
 		urls = append(urls, url)
 	}
@@ -124,7 +134,7 @@ func UpdateShortURL(w http.ResponseWriter, r *http.Request) {
 	var reqURL models.URLShorten
 	_ = json.NewDecoder(r.Body).Decode(&reqURL)
 
-	fmt.Printf("Update URL Body: %v", reqURL)
+	lg.WriteInfo(fmt.Sprintf("Update URL: %v with new Long URL %v", reqURL.ShortenedURLCode, reqURL.OriginalURL))
 
 	filter := bson.D{{"_id", reqURL.ID}}
 	replacement := bson.D{{"$set", bson.D{{"original_url", reqURL.OriginalURL}}}}
@@ -132,15 +142,14 @@ func UpdateShortURL(w http.ResponseWriter, r *http.Request) {
 	var replaced bson.M
 	err := collection.FindOneAndUpdate(context.TODO(), filter, replacement).Decode(&replaced)
 	if err != nil {
-		log.Fatal(err)
+		lg.WriteError(err.Error())
 	}
 
 	type response struct {
 		Status string `json:"status"`
 	}
 
-	resp := response{"okay"}
-	json.NewEncoder(w).Encode(resp)
+	json.NewEncoder(w).Encode(response{"okay", "Updated successfully"})
 }
 
 // DeleteURL - Delete a particular URL
@@ -157,14 +166,12 @@ func DeleteURL(w http.ResponseWriter, r *http.Request) {
 
 	result, err := collection.DeleteOne(context.TODO(), filter)
 	if err != nil {
-		log.Fatal(err)
+		lg.WriteError(err.Error())
 	}
 
 	type response struct {
 		Status string `json:"status"`
 	}
 
-	resp := response{fmt.Sprintf("deleted %v documents", result.DeletedCount)}
-
-	json.NewEncoder(w).Encode(resp)
+	json.NewEncoder(w).Encode(response{"okay", fmt.Sprintf("deleted %v documents", result.DeletedCount))
 }
