@@ -145,10 +145,6 @@ func UpdateShortURL(w http.ResponseWriter, r *http.Request) {
 		lg.WriteError(err.Error())
 	}
 
-	type response struct {
-		Status string `json:"status"`
-	}
-
 	json.NewEncoder(w).Encode(response{"okay", "Updated successfully"})
 }
 
@@ -169,9 +165,5 @@ func DeleteURL(w http.ResponseWriter, r *http.Request) {
 		lg.WriteError(err.Error())
 	}
 
-	type response struct {
-		Status string `json:"status"`
-	}
-
-	json.NewEncoder(w).Encode(response{"okay", fmt.Sprintf("deleted %v documents", result.DeletedCount))
+	json.NewEncoder(w).Encode(response{"okay", fmt.Sprintf("deleted %v documents", result.DeletedCount)})
 }
