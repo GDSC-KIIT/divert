@@ -17,3 +17,5 @@
 * `MONGODB_URL` - Mongodb Server URL
 * `DBNAME` - Name of the database
 * `COLLECTION_NAME` - Name of the collection
+
+Command to push subtree to heroku - `git subtree push --prefix server/ heroku master`
