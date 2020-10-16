@@ -16,6 +16,7 @@ func redirect(w http.ResponseWriter, r *http.Request) {
 	
 	if exists {
 		http.Redirect(w, r, longURL, 303)
+		go middleware.IncrementClick(shortURL)
 	} else {
 		fmt.Fprintf(w, "DSCKIIT Divert - 404 Page Not found")
 	}
@@ -45,7 +46,7 @@ func Router() *mux.Router {
 
 	router.HandleFunc("/", index).Methods("GET", "OPTIONS")
 	router.HandleFunc("/{shortURL}", redirect).Methods("GET", "OPTIONS")
-
+	
 	router.HandleFunc("/api/createURL", middleware.CreateShortenedURL).Methods("POST", "OPTIONS")
 	router.HandleFunc("/api/getAllURL", middleware.GetAllURL).Methods("GET", "OPTIONS")
 	router.HandleFunc("/api/updateURL", middleware.UpdateShortURL).Methods("POST", "OPTIONS")

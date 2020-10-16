@@ -167,3 +167,14 @@ func DeleteURL(w http.ResponseWriter, r *http.Request) {
 
 	json.NewEncoder(w).Encode(response{"okay", fmt.Sprintf("deleted %v documents", result.DeletedCount)})
 }
+
+// IncrementClick - Increments the click counter on the db
+func IncrementClick(shortURL string) {
+	filter := bson.D{{"shortened_url_code", shortURL}}
+	update := bson.D{{"$inc", bson.D{{"click_count", 1}}}}
+
+	_, err := collection.UpdateOne(context.TODO(), filter, update)
+	if err != nil {
+		lg.WriteError(err.Error())
+	}
+}
