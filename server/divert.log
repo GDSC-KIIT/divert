@@ -24,3 +24,5 @@ INFO: 2020/10/17 00:54:55 logger.go:30: URLHashMap Update: Connected to MongoDB!
 INFO: 2020/10/17 00:54:55 logger.go:30: HashMap Update Complete
 INFO: 2020/10/17 00:55:55 logger.go:30: URLHashMap Update: Connected to MongoDB!
 INFO: 2020/10/17 00:55:55 logger.go:30: HashMap Update Complete
+INFO: 2020/10/17 00:56:55 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/17 00:56:55 logger.go:30: HashMap Update Complete
