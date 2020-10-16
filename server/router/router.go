@@ -51,7 +51,6 @@ func Router() *mux.Router {
 	router.HandleFunc("/api/getAllURL", middleware.GetAllURL).Methods("GET", "OPTIONS")
 	router.HandleFunc("/api/updateURL", middleware.UpdateShortURL).Methods("POST", "OPTIONS")
 	router.HandleFunc("/api/deleteURL", middleware.DeleteURL).Methods("POST", "OPTIONS")
-	router.HandleFunc("/api", middleware.Index).Methods("GET", "OPTIONS")
 
 	return router
 }

@@ -56,13 +56,6 @@ func Init() {
 	lg.WriteInfo("Middleware Init: Collection instance created!")
 }
 
-// Index - Get Request of the Index page
-func Index(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Access-Control-Allow-Methods", "GET")
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	fmt.Fprintf(w, "DSCKIIT - divert, Backend API")
-}
-
 // CreateShortenedURL for creating new shortened url
 func CreateShortenedURL(w http.ResponseWriter, r *http.Request) {
 	// set headers
