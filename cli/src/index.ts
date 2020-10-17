@@ -3,8 +3,12 @@ import inquirer from "inquirer";
 import axios from "axios";
 import boxen, { BorderStyle } from "boxen";
 import chalk from "chalk";
+import ora from "ora";
 
 const log = console.log;
+const spinner = ora("Loading unicorns");
+spinner.color = "green";
+spinner.text = "Loading ...";
 
 log(
   boxen(
@@ -53,14 +57,16 @@ inquirer
         ])
         .then((answers) => {
           // request
+          spinner.start();
           axios
             .post("http://dsckiit-divert.herokuapp.com/api/createURL", answers)
             .then((resp) => {
+              spinner.succeed();
               log(
                 chalk.greenBright(`Saved in DB with id ${resp.data.message}`)
               );
             })
-            .catch((err) =>
+            .catch((err) => 
               log(
                 chalk.redBright(`
           We encountered the following error:  ${err}. 
@@ -71,9 +77,11 @@ inquirer
     }
     // view URL
     else if (answers.option === "View list of shortened URLs") {
+      spinner.start();
       axios
         .get("http://dsckiit-divert.herokuapp.com/api/getAllURL")
         .then((resp) => {
+          spinner.succeed();
           console.table(resp.data, [
             "shortened_url_code",
             "original_url",
@@ -91,9 +99,11 @@ inquirer
     // update URL
     else if (answers.option === "Update a shortened URL") {
       // get list to show user
+      spinner.start();
       axios
         .get("http://dsckiit-divert.herokuapp.com/api/getAllURL")
         .then((resp) => {
+          spinner.stop();
           console.table(resp.data, [
             "_id",
             "shortened_url_code",
@@ -123,12 +133,14 @@ inquirer
             ])
             // update with inputs
             .then((answers) => {
+              spinner.start();
               axios
                 .post(
                   "http://dsckiit-divert.herokuapp.com/api/updateURL",
                   answers
                 )
                 .then(() => {
+                  spinner.succeed();
                   log(chalk.greenBright("URL has been updated"));
                 })
                 .catch((err) =>
@@ -151,9 +163,11 @@ inquirer
     // delete a URL
     else if (answers.option === "Delete a shortened URL") {
       // get list to show user
+      spinner.start();
       axios
         .get("http://dsckiit-divert.herokuapp.com/api/getAllURL")
         .then((resp) => {
+          spinner.stop();
           console.table(resp.data, [
             "_id",
             "shortened_url_code",
@@ -169,12 +183,14 @@ inquirer
             })
             .then((answers) => {
               // delete request
+              spinner.start();
               axios
                 .post(
                   "http://dsckiit-divert.herokuapp.com/api/deleteURL",
                   answers
                 )
                 .then(() => {
+                  spinner.succeed();
                   log(chalk.greenBright("URL has been deleted from DB"));
                 })
                 .catch((err) =>
