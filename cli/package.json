@@ -1,10 +1,15 @@
 {
   "name": "divert",
   "version": "1.0.0",
-  "description": "",
+  "description": "A cli for our url shortener!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "tsc -w",
+    "dev": "nodemon dist/index.js",
+    "dev-ts-node": "nodemon --exec ts-node src/index.ts",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.+(ts|tsx|js|jsx|json)\"",
+    "start": "node dist/index.js"
   },
   "keywords": [
     "cli",
@@ -18,5 +23,11 @@
     "boxen": "^4.2.0",
     "chalk": "^4.1.0",
     "inquirer": "^7.3.3"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^7.3.1",
+    "prettier": "^2.1.2",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
   }
 }
