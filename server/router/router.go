@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/DSC-KIIT/divert/auth"
 	"github.com/DSC-KIIT/divert/middleware"
 	"github.com/DSC-KIIT/divert/urlmap"
 	"github.com/gorilla/mux"
@@ -39,6 +40,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 func Router() *mux.Router {
 	middleware.Init()
 	urlmap.Init()
+	auth.Init()
 
 	schedule(urlmap.Map.Update, 3*time.Minute)
 
@@ -47,6 +49,7 @@ func Router() *mux.Router {
 	router.HandleFunc("/", index).Methods("GET", "OPTIONS")
 	router.HandleFunc("/{shortURL}", redirect).Methods("GET", "OPTIONS")
 	
+	router.HandleFunc("/api/login", auth.Login).Methods("POST", "OPTIONS")
 	router.HandleFunc("/api/createURL", middleware.CreateShortenedURL).Methods("POST", "OPTIONS")
 	router.HandleFunc("/api/getAllURL", middleware.GetAllURL).Methods("GET", "OPTIONS")
 	router.HandleFunc("/api/updateURL", middleware.UpdateShortURL).Methods("POST", "OPTIONS")

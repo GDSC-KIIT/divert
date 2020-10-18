@@ -8,6 +8,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/DSC-KIIT/divert/auth"
 	"github.com/DSC-KIIT/divert/models"
 
 	"go.mongodb.org/mongo-driver/bson"
@@ -21,7 +22,7 @@ var collection *mongo.Collection
 var lg logger.Logger
 
 type response struct {
-	Status  string `json:"status"`
+	Status  string      `json:"status"`
 	Message interface{} `json:"message"`
 }
 
@@ -64,6 +65,12 @@ func CreateShortenedURL(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
+	if !auth.IsValidToken(r.Header.Get("x-auth-token")) {
+		resp := response{Status: "error", Message: "Invalid Token"}
+		json.NewEncoder(w).Encode(resp)
+		return
+	}
+
 	// set short and long url from r.Body to the reqURL obj
 	var reqURL models.URLShorten
 	_ = json.NewDecoder(r.Body).Decode(&reqURL)
@@ -97,6 +104,12 @@ func GetAllURL(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "GET")
 
+	if !auth.IsValidToken(r.Header.Get("x-auth-token")) {
+		resp := response{Status: "error", Message: "Invalid Token"}
+		json.NewEncoder(w).Encode(resp)
+		return
+	}
+
 	cursor, err := collection.Find(context.TODO(), bson.D{})
 	if err != nil {
 		lg.WriteError(err.Error())
@@ -124,6 +137,12 @@ func UpdateShortURL(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
+	if !auth.IsValidToken(r.Header.Get("x-auth-token")) {
+		resp := response{Status: "error", Message: "Invalid Token"}
+		json.NewEncoder(w).Encode(resp)
+		return
+	}
+
 	var reqURL models.URLShorten
 	_ = json.NewDecoder(r.Body).Decode(&reqURL)
 
@@ -147,6 +166,12 @@ func DeleteURL(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
+	if !auth.IsValidToken(r.Header.Get("x-auth-token")) {
+		resp := response{Status: "error", Message: "Invalid Token"}
+		json.NewEncoder(w).Encode(resp)
+		return
+	}
 
 	var reqURL models.URLShorten
 	_ = json.NewDecoder(r.Body).Decode(&reqURL)
