@@ -16,6 +16,8 @@
 * `PORT` - Server port number
 * `MONGODB_URL` - Mongodb Server URL
 * `DBNAME` - Name of the database
-* `COLLECTION_NAME` - Name of the collection
+* `COLLECTION_NAME` - Name of the urls collection
+* `AUTH_COLLECTION_NAME` - Name of auth collection
+* `JWT_SIGNING_KEY` - Key to sign JWT tokens
 
 Command to push subtree to heroku - `git subtree push --prefix server/ heroku master`
