@@ -10,6 +10,7 @@
 * `/api/getAllURL` - Returns an array of JSON objects with all the long and short urls in it
 * `/api/updateURL` - Update a url, request body same as that of create
 * `/api/deleteURL` - Delete a url, Sample Request body `{"shortened_url_code: "abcd1234"}`
+* `/api/login/` - Login route, send request in the following format `{"username": "xyz", "password": "abc"}`, will return a json web token that can be added to the x-auth-token header to make requests to all the above routes
 
 ### Environment Variables
 
