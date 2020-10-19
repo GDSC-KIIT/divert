@@ -165,3 +165,11 @@ INFO: 2020/10/18 16:45:37 logger.go:30: URLHashMap Update: Connected to MongoDB!
 INFO: 2020/10/18 16:45:37 logger.go:30: HashMap Update Complete
 INFO: 2020/10/18 16:48:37 logger.go:30: URLHashMap Update: Connected to MongoDB!
 INFO: 2020/10/18 16:48:37 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 12:35:59 logger.go:30: Middleware Init: Connected to MongoDB!
+INFO: 2020/10/19 12:35:59 logger.go:30: Middleware Init: Collection instance created!
+INFO: 2020/10/19 12:35:59 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 12:35:59 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 12:38:30 logger.go:30: Middleware Init: Connected to MongoDB!
+INFO: 2020/10/19 12:38:30 logger.go:30: Middleware Init: Collection instance created!
+INFO: 2020/10/19 12:38:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 12:38:30 logger.go:30: HashMap Update Complete
