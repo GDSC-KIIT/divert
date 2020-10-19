@@ -41,3 +41,6 @@ The backend service is written in Go. The CLI tool is written in Typescript.
 ## License
 
 Copyright (c) **DSC KIIT**. All rights reserved. Licensed under the MIT License
+
+[![forthebadge](https://forthebadge.com/images/badges/made-with-go.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/uses-js.svg)](https://forthebadge.com)
