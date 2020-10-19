@@ -1,6 +1,6 @@
 # divert
 
-The internal URL shortening service for DSC KIIT. Available on `r.dsckiit.gq`
+The internal URL shortening service for DSC KIIT. Available on [r.dsckiit.gq](http://r.dsckiit.gq)
 
 ## Get Started
 
