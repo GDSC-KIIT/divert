@@ -5,7 +5,7 @@ The internal URL shortening service for DSC KIIT. Available on [r.dsckiit.gq](ht
 ## Get Started
 
 <div align="center">
-	<img width="80%" src="">	
+	<img width="80%" src="https://rawcdn.githack.com/DSC-KIIT/divert/3901160f6725451f31cee2fb70dcaded4bdd8bab/screenshot.png">	
 </div>
 
 Install the CLI tool to login and create short urls (only for members of DSC KIIT). The package is available on npm.
