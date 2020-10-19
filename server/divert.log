@@ -205,3 +205,25 @@ INFO: 2020/10/19 13:23:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
 INFO: 2020/10/19 13:23:30 logger.go:30: HashMap Update Complete
 INFO: 2020/10/19 13:26:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
 INFO: 2020/10/19 13:26:30 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 13:52:07 logger.go:30: Middleware Init: Connected to MongoDB!
+INFO: 2020/10/19 13:52:07 logger.go:30: Middleware Init: Collection instance created!
+INFO: 2020/10/19 13:52:07 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 13:52:07 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 13:52:44 logger.go:30: Middleware Init: Connected to MongoDB!
+INFO: 2020/10/19 13:52:44 logger.go:30: Middleware Init: Collection instance created!
+INFO: 2020/10/19 13:52:44 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 13:52:44 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 13:55:44 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 13:55:44 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 13:58:06 logger.go:30: Middleware Init: Connected to MongoDB!
+INFO: 2020/10/19 13:58:06 logger.go:30: Middleware Init: Collection instance created!
+INFO: 2020/10/19 13:58:06 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 13:58:06 logger.go:30: HashMap Update Complete
+WARNING: 2020/10/19 13:59:18 logger.go:36: token contains an invalid number of segments
+INFO: 2020/10/19 14:04:12 logger.go:30: Middleware Init: Connected to MongoDB!
+INFO: 2020/10/19 14:04:12 logger.go:30: Middleware Init: Collection instance created!
+INFO: 2020/10/19 14:04:12 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 14:04:12 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 14:05:00 logger.go:30: Creating Short URL: gh to Long URL: https://www.github.com
+INFO: 2020/10/19 14:07:12 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 14:07:12 logger.go:30: HashMap Update Complete

@@ -48,7 +48,9 @@ func Router() *mux.Router {
 	schedule(urlmap.Map.Update, 3*time.Minute)
 
 	router := mux.NewRouter()
+	fs := http.FileServer(http.Dir("public/"))
 
+	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", fs))
 	router.HandleFunc("/", index).Methods("GET", "OPTIONS")
 	router.HandleFunc("/{shortURL}", redirect).Methods("GET", "OPTIONS")
 
