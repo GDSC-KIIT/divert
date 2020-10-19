@@ -55,6 +55,7 @@ const main = () => {
                 "View list of shortened URLs",
                 "Update a shortened URL",
                 "Delete a shortened URL",
+                "Login",
             ],
         },
     ])
@@ -201,6 +202,40 @@ const main = () => {
               We encountered the following error:  ${err}. 
               Please try again later!`)));
                 });
+            });
+        }
+        else if (answers.option === "Login") {
+            inquirer_1.default
+                .prompt([
+                {
+                    type: "input",
+                    name: "username",
+                    message: "Username:",
+                },
+                {
+                    type: "password",
+                    name: "password",
+                    message: "Password:",
+                },
+            ])
+                .then((answers) => {
+                spinner.start();
+                axios_1.default
+                    .post(`${url}/api/login`, answers)
+                    .then((resp) => {
+                    spinner.succeed();
+                    if (resp.data.status === "error") {
+                        log(chalk_1.default.redBright(`${resp.data.message}`));
+                        process.exit();
+                    }
+                    else {
+                        log(chalk_1.default.greenBright(`Authenticated!`));
+                        config.set({ token: resp.data.token });
+                    }
+                })
+                    .catch((err) => log(chalk_1.default.redBright(`
+              We encountered the following error:  ${err}. 
+              Please try again later!`)));
             });
         }
     })
