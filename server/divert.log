@@ -173,3 +173,35 @@ INFO: 2020/10/19 12:38:30 logger.go:30: Middleware Init: Connected to MongoDB!
 INFO: 2020/10/19 12:38:30 logger.go:30: Middleware Init: Collection instance created!
 INFO: 2020/10/19 12:38:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
 INFO: 2020/10/19 12:38:30 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 12:41:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 12:41:30 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 12:44:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 12:44:30 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 12:47:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 12:47:30 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 12:50:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 12:50:30 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 12:53:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 12:53:30 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 12:56:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 12:56:30 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 12:59:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 12:59:30 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 13:02:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 13:02:30 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 13:05:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 13:05:30 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 13:08:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 13:08:30 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 13:11:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 13:11:30 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 13:14:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 13:14:30 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 13:17:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 13:17:30 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 13:20:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 13:20:30 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 13:23:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 13:23:30 logger.go:30: HashMap Update Complete
+INFO: 2020/10/19 13:26:30 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/19 13:26:30 logger.go:30: HashMap Update Complete
