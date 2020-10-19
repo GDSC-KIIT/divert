@@ -264,8 +264,13 @@ if (config.get("token") === undefined) {
         .post(`${url}/api/login`, answers)
         .then((resp) => {
           spinner.succeed();
-          log(chalk.greenBright(`Authenticated!`));
-          config.set({ token: resp.data.token });
+          if (resp.data.status === "error") {
+            log(chalk.redBright(`${resp.data.message}`));
+            process.exit();
+          } else {
+            log(chalk.greenBright(`Authenticated!`));
+            config.set({ token: resp.data.token });
+          }
         })
         .then(() => main())
         .catch((err) =>
