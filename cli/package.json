@@ -1,8 +1,11 @@
 {
-  "name": "divert",
-  "version": "1.0.0",
+  "name": "@dsckiit/divert",
+  "version": "1.0.2",
   "description": "A cli for our url shortener!",
   "main": "index.js",
+  "bin": {
+    "divert": "dist/index.js"
+  },
   "scripts": {
     "watch": "tsc -w",
     "dev": "nodemon dist/index.js",
