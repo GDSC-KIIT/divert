@@ -227,3 +227,19 @@ INFO: 2020/10/19 14:04:12 logger.go:30: HashMap Update Complete
 INFO: 2020/10/19 14:05:00 logger.go:30: Creating Short URL: gh to Long URL: https://www.github.com
 INFO: 2020/10/19 14:07:12 logger.go:30: URLHashMap Update: Connected to MongoDB!
 INFO: 2020/10/19 14:07:12 logger.go:30: HashMap Update Complete
+INFO: 2020/10/25 12:20:43 logger.go:30: Middleware Init: Connected to MongoDB!
+INFO: 2020/10/25 12:20:43 logger.go:30: Middleware Init: Collection instance created!
+INFO: 2020/10/25 12:20:43 logger.go:30: URLHashMap Update: Connected to MongoDB!
+INFO: 2020/10/25 12:20:43 logger.go:30: HashMap Update Complete
+INFO: 2020/10/25 12:26:46 logger.go:30: Middleware Init: Connected to MongoDB!
+INFO: 2020/10/25 12:26:46 logger.go:30: Middleware Init: Collection instance created!
+INFO: 2020/10/25 12:26:46 logger.go:30: URLHashMap: Connected to MongoDB!
+INFO: 2020/10/25 12:26:46 logger.go:30: URLHashMap: Fetch Complete; Locking RW
+INFO: 2020/10/25 12:26:46 logger.go:30: URLHashMap: Hashmap Updated; RW Unlocked
+INFO: 2020/10/25 12:26:46 logger.go:30: URLHashMap: Update Complete
+INFO: 2020/10/25 12:27:22 logger.go:30: Middleware Init: Connected to MongoDB!
+INFO: 2020/10/25 12:27:22 logger.go:30: Middleware Init: Collection instance created!
+INFO: 2020/10/25 12:27:22 logger.go:30: URLHashMap: Connected to MongoDB!
+INFO: 2020/10/25 12:27:22 logger.go:30: URLHashMap: Fetch Complete; Locking RW
+INFO: 2020/10/25 12:27:22 logger.go:30: URLHashMap: Hashmap Updated; Unlocked RW
+INFO: 2020/10/25 12:27:22 logger.go:30: URLHashMap: Update Complete

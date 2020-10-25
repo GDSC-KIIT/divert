@@ -2,7 +2,6 @@ package urlmap
 
 import (
 	"context"
-	"fmt"
 	"os"
 	"sync"
 	"time"
@@ -45,33 +44,21 @@ func (m *URLHashMap) Get(shortURL string) (string, bool) {
 }
 
 // Fixes
-func updateData(c chan<- int, data []result, m *URLHashMap) {
+func (m *URLHashMap) lockAndUpdateMap(data []result) {
 	m.rwmutex.Lock()
 	defer m.rwmutex.Unlock()
 
 	// Update the local data with new data in here
-	fmt.Println("Updating data")
 	for _, r := range data {
 		m.URLMap[r.ShortURL] = r.LongURL
 	}
 
-	fmt.Println("Reads unlocked")
-	c <- 10
-	fmt.Println("Data updated")
-}
+	lg.WriteInfo("URLHashMap: Hashmap Updated; Unlocked RW")
 
-func completed(c <-chan int, s chan<- int) {
-	stat := <-c
-	s <- stat
 }
 
 // Update - fetch from MongoDB and update the hashmap
 func (m *URLHashMap) Update() {
-	updateChannel := make(chan int, 1)
-	defer close(updateChannel)
-	status := make(chan int, 1)
-	defer close(status)
-
 	connectionString := os.Getenv("MONGODB_URL")
 	dbName := os.Getenv("DBNAME")
 	collectionName := os.Getenv("COLLECTION_NAME")
@@ -96,7 +83,7 @@ func (m *URLHashMap) Update() {
 
 	var collection *mongo.Collection
 
-	lg.WriteInfo("URLHashMap Update: Connected to MongoDB!")
+	lg.WriteInfo("URLHashMap: Connected to MongoDB!")
 	collection = client.Database(dbName).Collection(collectionName)
 
 	cursor, err := collection.Find(context.TODO(), bson.D{})
@@ -109,9 +96,9 @@ func (m *URLHashMap) Update() {
 		lg.WriteError(err.Error())
 	}
 
-	updateData(updateChannel, results, m)
-	completed(updateChannel, status)
-	fmt.Println("Random update completion response : ", <-status)
+	lg.WriteInfo("URLHashMap: Fetch Complete; Locking RW")
 
-	lg.WriteInfo("HashMap Update Complete")
+	Map.lockAndUpdateMap(results)
+
+	lg.WriteInfo("URLHashMap: Update Complete")
 }
