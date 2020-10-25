@@ -97,8 +97,6 @@ func (m *URLHashMap) Update() {
 	}
 
 	lg.WriteInfo("URLHashMap: Fetch Complete; Locking RW")
-
 	Map.lockAndUpdateMap(results)
-
 	lg.WriteInfo("URLHashMap: Update Complete")
 }
