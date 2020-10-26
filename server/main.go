@@ -17,9 +17,9 @@ func main() {
 	// os.Setenv("COLLECTION_NAME", "urls")
 	// os.Setenv("AUTH_COLLECTION_NAME", "authinfo")
 	// os.Setenv("JWT_SIGNING_KEY", "junaidrahim")
-	
+
 	port := os.Getenv("PORT")
-	
+
 	r := router.Router()
 	fmt.Println("DSCKIIT Divert Backend Service - Starting server on the port " + port)
 	fmt.Println("Logs written on stderr and divert.log file")

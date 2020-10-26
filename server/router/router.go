@@ -1,6 +1,8 @@
 package router
 
 import (
+	"fmt"
+	"log"
 	"net/http"
 	"time"
 
@@ -9,6 +11,40 @@ import (
 	"github.com/DSC-KIIT/divert/urlmap"
 	"github.com/gorilla/mux"
 )
+
+func secure(h http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Security-Policy", "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests")
+		w.Header().Set("X-DNS-Prefetch-Control", "off")
+		w.Header().Set("Expect-CT", "max-age=0")
+		w.Header().Set("X-Frame-Options", "SAMEORIGIN")
+		w.Header().Set("Strict-Transport-Security", "max-age=15552000; includeSubDomains")
+		w.Header().Set("X-Download-Options", "noopen")
+		w.Header().Set("X-Content-Type-Options", "nosniff")
+		w.Header().Set("X-Permitted-Cross-Domain-Policies", "none")
+		w.Header().Set("Referrer-Policy", "no-referrer")
+		w.Header().Set("X-XSS-Protection", "0")
+		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+		w.Header().Set("Content-Type", "application/json")
+
+		h.ServeHTTP(w, r)
+	})
+}
+
+func easteregg(h http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		log.Println(r.Method, r.Proto, r.URL)
+
+		if r.URL.Path == "/omgdsc" {
+			fmt.Fprint(w, "Hello from DSC-KIIT, you found an easter egg 🐰🥚")
+			return
+		}
+
+		h.ServeHTTP(w, r)
+	})
+}
 
 func redirect(w http.ResponseWriter, r *http.Request) {
 	shortURL := mux.Vars(r)["shortURL"]
@@ -48,6 +84,8 @@ func Router() *mux.Router {
 	schedule(urlmap.Map.Update, 3*time.Minute)
 
 	router := mux.NewRouter()
+	router.Use(secure)
+	router.Use(easteregg)
 	fs := http.FileServer(http.Dir("public/"))
 
 	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", fs))
