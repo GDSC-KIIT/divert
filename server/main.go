@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/DSC-KIIT/divert/router"
+	"github.com/joho/godotenv"
 )
 
 func main() {
@@ -17,9 +18,14 @@ func main() {
 	// os.Setenv("COLLECTION_NAME", "urls")
 	// os.Setenv("AUTH_COLLECTION_NAME", "authinfo")
 	// os.Setenv("JWT_SIGNING_KEY", "junaidrahim")
-	
+
+	error := godotenv.Load(".env")
+	if error != nil {
+		log.Println(error)
+	}
+
 	port := os.Getenv("PORT")
-	
+
 	r := router.Router()
 	fmt.Println("DSCKIIT Divert Backend Service - Starting server on the port " + port)
 	fmt.Println("Logs written on stderr and divert.log file")
