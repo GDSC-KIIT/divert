@@ -37,7 +37,7 @@ func easteregg(h http.Handler) http.Handler {
 		log.Println(r.Method, r.Proto, r.URL)
 
 		if r.URL.Path == "/omgdsc" {
-			fmt.Fprint(w, "Hello from DSC-KIIT")
+			fmt.Fprint(w, "Hello from DSC-KIIT, you found an easter egg 🐰🥚")
 			return
 		}
 
