@@ -7,7 +7,6 @@ import (
 	"os"
 
 	"github.com/DSC-KIIT/divert/router"
-	"github.com/joho/godotenv"
 )
 
 func main() {
@@ -18,12 +17,6 @@ func main() {
 	// os.Setenv("COLLECTION_NAME", "urls")
 	// os.Setenv("AUTH_COLLECTION_NAME", "authinfo")
 	// os.Setenv("JWT_SIGNING_KEY", "junaidrahim")
-
-	// Load env vars from .env file
-	error := godotenv.Load(".env")
-	if error != nil {
-		log.Println(error)
-	}
 
 	port := os.Getenv("PORT")
 
