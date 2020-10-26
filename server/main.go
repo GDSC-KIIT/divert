@@ -19,6 +19,7 @@ func main() {
 	// os.Setenv("AUTH_COLLECTION_NAME", "authinfo")
 	// os.Setenv("JWT_SIGNING_KEY", "junaidrahim")
 
+	// Load env vars from .env file
 	error := godotenv.Load(".env")
 	if error != nil {
 		log.Println(error)
