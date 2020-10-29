@@ -2,6 +2,8 @@
 
 The internal URL shortening service for DSC KIIT. Available on [r.dsckiit.gq](http://r.dsckiit.gq)
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/DSC-KIIT/divert)](https://goreportcard.com/report/github.com/DSC-KIIT/divert)
+
 ## Get Started
 
 <div align="center">
