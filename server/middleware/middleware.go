@@ -61,6 +61,7 @@ func Init() {
 func CreateShortenedURL(w http.ResponseWriter, r *http.Request) {
 	// set headers
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 
 	if !auth.IsValidToken(r.Header.Get("x-auth-token")) {
 		resp := response{Status: "error", Message: "Invalid Token"}
@@ -98,6 +99,7 @@ func CreateShortenedURL(w http.ResponseWriter, r *http.Request) {
 func GetAllURL(w http.ResponseWriter, r *http.Request) {
 	// set headers
 	w.Header().Set("Access-Control-Allow-Methods", "GET")
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 
 	if !auth.IsValidToken(r.Header.Get("x-auth-token")) {
 		resp := response{Status: "error", Message: "Invalid Token"}
@@ -128,6 +130,7 @@ func GetAllURL(w http.ResponseWriter, r *http.Request) {
 func UpdateShortURL(w http.ResponseWriter, r *http.Request) {
 	// set headers
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 
 	if !auth.IsValidToken(r.Header.Get("x-auth-token")) {
 		resp := response{Status: "error", Message: "Invalid Token"}
@@ -155,6 +158,7 @@ func UpdateShortURL(w http.ResponseWriter, r *http.Request) {
 // DeleteURL - Delete a particular URL
 func DeleteURL(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 
 	if !auth.IsValidToken(r.Header.Get("x-auth-token")) {
 		resp := response{Status: "error", Message: "Invalid Token"}
