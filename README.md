@@ -18,12 +18,12 @@ This will install the `divert` command, just run `divert` in your terminal to st
 
 ## Tech and Design
 
-The long and short urls are stored in the database. The backend fetches the database every 3 minutes
-and updates a local in memory hashmap that maps the short urls to long urls. The redirect requests are directly served 
-by accessing this in memory hashmap. We need that sweet O(1) access.
+The long and short urls are stored in the database. The backend fetches from the database every 3 minutes
+and updates a local in-memory hashmap that maps the short urls to long urls. The redirect requests are directly served 
+by accessing this in-memory hashmap. We need that sweet O(1) access.
 
 The process to fetch from the database runs on another thread (implemented using goroutines). 
-`sync.RWMutex` is used to prevent data races on the in memory hashmap.
+`sync.RWMutex` is used to prevent data races on the hashmap.
 
 The backend service is written in Go. The CLI tool is written in Typescript.
 
