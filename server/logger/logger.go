@@ -15,7 +15,7 @@ type Logger struct {
 // Init - Initialises the Loggers with the appropriate files
 func (l *Logger) Init() {
 	file, err := os.OpenFile("divert.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
-	
+
 	if err != nil {
 		log.Panic("Logger: Cannot create divert.log file")
 	}

@@ -10,7 +10,6 @@ type URLShorten struct {
 	ClickCount       int                `json:"click_count" bson:"click_count"`
 }
 
-
 // AuthModel defines the model for storing usernames and passwords
 type AuthModel struct {
 	ID       primitive.ObjectID `json:"_id" bson:"_id"`

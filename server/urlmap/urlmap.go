@@ -43,7 +43,7 @@ func (m *URLHashMap) Get(shortURL string) (string, bool) {
 	return val, exists
 }
 
-// lockAndUpdateMap - locks the mutex and updates the hashmap 
+// lockAndUpdateMap - locks the mutex and updates the hashmap
 func (m *URLHashMap) lockAndUpdateMap(data []result) {
 	m.rwmutex.Lock()
 	defer m.rwmutex.Unlock()
