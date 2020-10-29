@@ -52,7 +52,6 @@ func redirect(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, longURL, 303)
 		go middleware.IncrementClick(shortURL)
 	} else {
-		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		http.ServeFile(w, r, "public/404.html")
 	}
 }
@@ -68,12 +67,10 @@ func schedule(f func(), delay time.Duration) {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	http.ServeFile(w, r, "public/index.html")
 }
 
 func notFoundHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	http.ServeFile(w, r, "public/404.html")
 }
 
