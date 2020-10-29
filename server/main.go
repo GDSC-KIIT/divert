@@ -11,12 +11,12 @@ import (
 
 func main() {
 	// For local development purposes
-	os.Setenv("PORT", "3000")
-	os.Setenv("MONGODB_URL", "mongodb://localhost:27017")
-	os.Setenv("DBNAME", "divert")
-	os.Setenv("COLLECTION_NAME", "urls")
-	os.Setenv("AUTH_COLLECTION_NAME", "authinfo")
-	os.Setenv("JWT_SIGNING_KEY", "junaidrahim")
+	// os.Setenv("PORT", "3000")
+	// os.Setenv("MONGODB_URL", "mongodb://localhost:27017")
+	// os.Setenv("DBNAME", "divert")
+	// os.Setenv("COLLECTION_NAME", "urls")
+	// os.Setenv("AUTH_COLLECTION_NAME", "authinfo")
+	// os.Setenv("JWT_SIGNING_KEY", "junaidrahim")
 
 	port := os.Getenv("PORT")
 
