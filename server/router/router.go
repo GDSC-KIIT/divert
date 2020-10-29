@@ -58,6 +58,7 @@ func redirect(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// schedule - run f on a go routine after every "delay" time
 func schedule(f func(), delay time.Duration) {
 	go func() {
 		for {
@@ -74,6 +75,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 func notFoundHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "public/404.html")
 }
+
 
 // Router is exported and used in main.go
 func Router() *mux.Router {

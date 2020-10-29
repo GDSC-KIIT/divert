@@ -60,10 +60,7 @@ func Init() {
 // CreateShortenedURL for creating new shortened url
 func CreateShortenedURL(w http.ResponseWriter, r *http.Request) {
 	// set headers
-	// w.Header().Set("Content-Type", "application/json")
-	// w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
-	// w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
 	if !auth.IsValidToken(r.Header.Get("x-auth-token")) {
 		resp := response{Status: "error", Message: "Invalid Token"}
@@ -100,8 +97,6 @@ func CreateShortenedURL(w http.ResponseWriter, r *http.Request) {
 // GetAllURL - Get all the URLs in the DB
 func GetAllURL(w http.ResponseWriter, r *http.Request) {
 	// set headers
-	// w.Header().Set("Content-Type", "application/json")
-	// w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "GET")
 
 	if !auth.IsValidToken(r.Header.Get("x-auth-token")) {
@@ -132,10 +127,7 @@ func GetAllURL(w http.ResponseWriter, r *http.Request) {
 // UpdateShortURL - Update a particular short URL
 func UpdateShortURL(w http.ResponseWriter, r *http.Request) {
 	// set headers
-	// w.Header().Set("Content-Type", "application/json")
-	// w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
-	// w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
 	if !auth.IsValidToken(r.Header.Get("x-auth-token")) {
 		resp := response{Status: "error", Message: "Invalid Token"}
@@ -162,10 +154,7 @@ func UpdateShortURL(w http.ResponseWriter, r *http.Request) {
 
 // DeleteURL - Delete a particular URL
 func DeleteURL(w http.ResponseWriter, r *http.Request) {
-	// w.Header().Set("Content-Type", "application/json")
-	// w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
-	// w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
 	if !auth.IsValidToken(r.Header.Get("x-auth-token")) {
 		resp := response{Status: "error", Message: "Invalid Token"}
