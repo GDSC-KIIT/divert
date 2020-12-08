@@ -79,7 +79,7 @@ func Router() *mux.Router {
 	urlmap.Init()
 	auth.Init()
 
-	schedule(urlmap.Map.Update, 3*time.Minute)
+	schedule(urlmap.Map.Update, 5*time.Minute)
 
 	router := mux.NewRouter()
 	router.Use(secure)

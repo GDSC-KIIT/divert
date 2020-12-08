@@ -96,6 +96,10 @@ func (m *URLHashMap) Update() {
 		lg.WriteError(err.Error())
 	}
 
+	cursor.Close(ctx)
+	client.Disconnect(ctx)
+
+
 	lg.WriteInfo("URLHashMap: Fetch Complete; Locking RW")
 	Map.lockAndUpdateMap(results)
 	lg.WriteInfo("URLHashMap: Update Complete")

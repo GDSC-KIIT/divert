@@ -40,3 +40,45 @@ INFO: 2020/10/29 09:20:20 logger.go:30: URLHashMap: Connected to MongoDB!
 INFO: 2020/10/29 09:20:20 logger.go:30: URLHashMap: Fetch Complete; Locking RW
 INFO: 2020/10/29 09:20:20 logger.go:30: URLHashMap: Hashmap Updated; Unlocked RW
 INFO: 2020/10/29 09:20:20 logger.go:30: URLHashMap: Update Complete
+INFO: 2020/12/08 21:02:46 logger.go:30: Middleware Init: Connected to MongoDB!
+INFO: 2020/12/08 21:02:46 logger.go:30: Middleware Init: Collection instance created!
+INFO: 2020/12/08 21:02:46 logger.go:30: URLHashMap: Connected to MongoDB!
+INFO: 2020/12/08 21:02:46 logger.go:30: URLHashMap: Fetch Complete; Locking RW
+INFO: 2020/12/08 21:02:46 logger.go:30: URLHashMap: Hashmap Updated; Unlocked RW
+INFO: 2020/12/08 21:02:46 logger.go:30: URLHashMap: Update Complete
+INFO: 2020/12/08 21:06:05 logger.go:30: Middleware Init: Connected to MongoDB!
+INFO: 2020/12/08 21:06:05 logger.go:30: Middleware Init: Collection instance created!
+INFO: 2020/12/08 21:06:05 logger.go:30: URLHashMap: Connected to MongoDB!
+INFO: 2020/12/08 21:06:05 logger.go:30: URLHashMap: Fetch Complete; Locking RW
+INFO: 2020/12/08 21:06:05 logger.go:30: URLHashMap: Hashmap Updated; Unlocked RW
+INFO: 2020/12/08 21:06:05 logger.go:30: URLHashMap: Update Complete
+INFO: 2020/12/08 21:06:12 logger.go:30: Middleware Init: Connected to MongoDB!
+INFO: 2020/12/08 21:06:12 logger.go:30: Middleware Init: Collection instance created!
+INFO: 2020/12/08 21:06:12 logger.go:30: URLHashMap: Connected to MongoDB!
+INFO: 2020/12/08 21:06:12 logger.go:30: URLHashMap: Fetch Complete; Locking RW
+INFO: 2020/12/08 21:06:12 logger.go:30: URLHashMap: Hashmap Updated; Unlocked RW
+INFO: 2020/12/08 21:06:12 logger.go:30: URLHashMap: Update Complete
+INFO: 2020/12/08 21:06:17 logger.go:30: URLHashMap: Connected to MongoDB!
+INFO: 2020/12/08 21:06:17 logger.go:30: URLHashMap: Fetch Complete; Locking RW
+INFO: 2020/12/08 21:06:17 logger.go:30: URLHashMap: Hashmap Updated; Unlocked RW
+INFO: 2020/12/08 21:06:17 logger.go:30: URLHashMap: Update Complete
+INFO: 2020/12/08 21:06:22 logger.go:30: URLHashMap: Connected to MongoDB!
+INFO: 2020/12/08 21:06:22 logger.go:30: URLHashMap: Fetch Complete; Locking RW
+INFO: 2020/12/08 21:06:22 logger.go:30: URLHashMap: Hashmap Updated; Unlocked RW
+INFO: 2020/12/08 21:06:22 logger.go:30: URLHashMap: Update Complete
+INFO: 2020/12/08 21:06:36 logger.go:30: Middleware Init: Connected to MongoDB!
+INFO: 2020/12/08 21:06:36 logger.go:30: Middleware Init: Collection instance created!
+INFO: 2020/12/08 21:06:36 logger.go:30: URLHashMap: Connected to MongoDB!
+INFO: 2020/12/08 21:06:36 logger.go:30: URLHashMap: Fetch Complete; Locking RW
+INFO: 2020/12/08 21:06:36 logger.go:30: URLHashMap: Hashmap Updated; Unlocked RW
+INFO: 2020/12/08 21:06:36 logger.go:30: URLHashMap: Update Complete
+INFO: 2020/12/08 21:06:41 logger.go:30: URLHashMap: Connected to MongoDB!
+INFO: 2020/12/08 21:06:41 logger.go:30: URLHashMap: Fetch Complete; Locking RW
+INFO: 2020/12/08 21:06:41 logger.go:30: URLHashMap: Hashmap Updated; Unlocked RW
+INFO: 2020/12/08 21:06:41 logger.go:30: URLHashMap: Update Complete
+INFO: 2020/12/08 21:07:04 logger.go:30: Middleware Init: Connected to MongoDB!
+INFO: 2020/12/08 21:07:04 logger.go:30: Middleware Init: Collection instance created!
+INFO: 2020/12/08 21:07:04 logger.go:30: URLHashMap: Connected to MongoDB!
+INFO: 2020/12/08 21:07:04 logger.go:30: URLHashMap: Fetch Complete; Locking RW
+INFO: 2020/12/08 21:07:04 logger.go:30: URLHashMap: Hashmap Updated; Unlocked RW
+INFO: 2020/12/08 21:07:04 logger.go:30: URLHashMap: Update Complete
