@@ -16,7 +16,7 @@ Install the CLI tool to login and create short urls (only for members of DSC KII
 npm i -g @dsckiit/divert
 ```
 
-This will setup the `divert` command, just run `divert` in your terminal.
+This will setup the `divert` command, just run `divert` in your terminal. Ask for the login info from one of the team members
 
 ## Tech and Design
 
