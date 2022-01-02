@@ -33,7 +33,7 @@ const log = console.log;
 const spinner = ora_1.default("Loading unicorns");
 spinner.color = "green";
 spinner.text = "Loading ...";
-const url = "http://r.dsckiit.gq";
+const url = "https://link.dsckiit.in";
 const config = new configstore_1.default("divert-cli");
 log(boxen_1.default(chalk_1.default.blue(`
 ██████╗ ██╗██╗   ██╗███████╗██████╗ ████████╗

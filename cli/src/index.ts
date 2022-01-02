@@ -11,7 +11,7 @@ const spinner = ora("Loading unicorns");
 spinner.color = "green";
 spinner.text = "Loading ...";
 
-const url = "http://r.dsckiit.gq";
+const url = "https://link.dsckiit.in";
 const config = new Configstore("divert-cli");
 
 // config.delete('token');
