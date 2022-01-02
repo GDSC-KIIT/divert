@@ -1,6 +1,6 @@
 # divert
 
-The internal URL shortening service for DSC KIIT. Available on [r.dsckiit.gq](http://r.dsckiit.gq)
+The internal URL shortening service for DSC KIIT. Available on [link.dsckiit.in](https://link.dsckiit.in)
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/DSC-KIIT/divert)](https://goreportcard.com/report/github.com/DSC-KIIT/divert)
 
