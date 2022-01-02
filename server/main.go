@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
+	// "os"
 
 	"github.com/DSC-KIIT/divert/router"
 )
@@ -18,7 +18,7 @@ func main() {
 	// os.Setenv("AUTH_COLLECTION_NAME", "authinfo")
 	// os.Setenv("JWT_SIGNING_KEY", "junaidrahim")
 
-	port := os.Getenv("PORT")
+	port := "3000" 
 
 	r := router.Router()
 	fmt.Println("DSCKIIT Divert Backend Service - Starting server on the port " + port)
