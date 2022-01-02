@@ -1,4 +1,13 @@
-version: 3.8
+version: "3.8"
 services:
   divert:
-    image: 
+    image: ghcr.io/dsc-kiit/divert:latest
+    ports:
+      - 3000:3000
+    environment:
+      - AUTH_COLLECTION_NAME=authinfo
+      - COLLECTION_NAME=urls
+      - DBNAME=divert
+      - GOVERSION=1.15
+      - JWT_SIGNING_KEY=<ADD_KEY>
+      - MONGODB_URL=<ADD_URL>
